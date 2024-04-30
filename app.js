@@ -32,9 +32,9 @@ app.get('/user/:id', checkToken, async (req, res) => {
 app.get('/users', async (req, res) => {
 
     try {
-        const teste = await User.find()
+        const buscaUsuarios = await User.find()
 
-        res.status(200).json(teste)
+        res.status(200).json(buscaUsuarios)
 
     } catch (error) {
         res.status(500).json({ error: error })
