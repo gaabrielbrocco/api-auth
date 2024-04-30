@@ -29,6 +29,18 @@ app.get('/user/:id', checkToken, async (req, res) => {
 
 })
 
+app.get('/users', async (req, res) => {
+
+    try {
+        const teste = await User.find()
+
+        res.status(200).json(teste)
+
+    } catch (error) {
+        res.status(500).json({ error: error })
+    }
+})
+
 function checkToken(req, res, next) {
 
     const authHeader = req.headers['authorization']
